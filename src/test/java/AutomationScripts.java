@@ -40,21 +40,21 @@ public class AutomationScripts extends ReusableMethods {
         driver.quit();
     }
 
-    @Test(description = "Navigate to XERO",enabled = false)
+    @Test(description = "Navigate to XERO")
     public void navigate() throws Exception {
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
         getScreenShots(driver, "Xero Home Page");
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test wrong password",enabled = false)
+    @Test(description = "Test wrong password")
     public void enterWrongPass() throws Exception {
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("wrongPwd"));
         //Assert the text
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test forgot password",enabled = false)
+    @Test(description = "Test forgot password")
     public void forgotPass() throws Exception {
         WebElement loginPage = driver.findElement(configReader.getLocator("xeroLoginPage"));
         clickObj(loginPage, "Login page");
@@ -70,7 +70,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test free trial",enabled = false)
+    @Test(description = "Test free trial")
     public void freeTrial() throws Exception {
         WebElement freeTrail = driver.findElement(configReader.getLocator("freeTrial"));
         clickObj(freeTrail, "Free Trial");
@@ -101,7 +101,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test free trial config",enabled = false)
+    @Test(description = "Test free trial config")
     public void  freeTrialConfig() throws Exception {
 
         WebElement freeTrail = driver.findElement(configReader.getLocator("freeTrial"));
@@ -132,7 +132,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test free trial terms link",enabled = false)
+    @Test(description = "Test free trial terms link")
     public void freeTrialTermsLink() throws Exception {
 
         WebElement freeTrail = driver.findElement(configReader.getLocator("freeTrial"));
@@ -154,7 +154,7 @@ public class AutomationScripts extends ReusableMethods {
 
     }
 
-    @Test(description = "Test full offer details",enabled = false)
+    @Test(description = "Test full offer details")
     public void fullOfferDetails() throws Exception {
 
         WebElement freeTrail = driver.findElement(configReader.getLocator("freeTrial"));
@@ -167,7 +167,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test all tabs",enabled = false)
+    @Test(description = "Test all tabs")
     public void testAllTabs() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -221,7 +221,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test logout",enabled = false)
+    @Test(description = "Test logout")
     public void logout() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -238,7 +238,7 @@ public class AutomationScripts extends ReusableMethods {
 
     }
 
-    @Test(description = "Test account create",enabled = false)
+    @Test(description = "Test account create")
     public void accountCreate() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -251,9 +251,7 @@ public class AutomationScripts extends ReusableMethods {
         WebElement bankAcc = driver.findElement(By.xpath("//a[contains(text(),'Bank Accounts')]"));
         clickObj(bankAcc, "Bank Account");
 
-
-
-        WebElement addNewAcc = driver.findElement(By.xpath("/html/body/div[2]/form/div/div[1]/div[2]/a/span"));
+        WebElement addNewAcc = driver.findElement(By.xpath("/html/body/div[2]/form/div/div[1]/div[1]/div/p/a"));
         clickObj(addNewAcc, "Bank Account");
 
         WebElement selectAccType = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/section/div[2]/ul/li[2]"));
@@ -270,7 +268,6 @@ public class AutomationScripts extends ReusableMethods {
         WebElement accountType = driver.findElement(By.xpath("//*[@id=\"accounttype-1027-trigger-picker\"]"));
         clickObj(accountType, "Account Type");
         Thread.sleep(2000);
-//        selectAccType.findElement(By.xpath(""))
 
         WebElement searchTypeAcc = driver.findElement(By.xpath("//input[@id='xui-searchfield-1018-inputEl']"));
         clickObj(searchTypeAcc, "Account");
@@ -286,7 +283,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test profile image",enabled = false)
+    @Test(description = "Test profile image")
     public  void profileImage() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -310,7 +307,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test organization",enabled = true)
+    @Test(description = "Test organization")
     public void organisation() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -343,7 +340,7 @@ public class AutomationScripts extends ReusableMethods {
 
     }
 
-    @Test(description = "Test organisation Purchase Starter",enabled = false)
+    @Test(description = "Test organisation Purchase Starter")
     public void organisationPurchaseStarter() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -449,7 +446,7 @@ public class AutomationScripts extends ReusableMethods {
         ReusableMethods.logTestStatus(Status.PASS, methodName);
     }
 
-    @Test(description = "Test organisation Purchase Standard",enabled = false)
+    @Test(description = "Test organisation Purchase Standard")
     public void organisationPurchaseStandard() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -555,7 +552,7 @@ public class AutomationScripts extends ReusableMethods {
 
     }
 
-    @Test(description = "Test organisation Purchase Premium",enabled = false)
+    @Test(description = "Test organisation Purchase Premium")
     public void organisationPurchasePremium() throws Exception {
 
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
@@ -569,7 +566,7 @@ public class AutomationScripts extends ReusableMethods {
         WebElement addOrganisation = driver.findElement(By.xpath("//*[@id=\"ext-gen1043\"]"));
         clickObj(addOrganisation, "Add organisations");
 
-        WebElement nameOrganisation = driver.findElement(By.xpath("//input[@id = 'text-1022-inputEl']"));
+        WebElement nameOrganisation = driver.findElement(By.xpath("//*[@id=\"text-1022-inputEl\"]"));
         clickObj(nameOrganisation, "Name of the Organisation");
         Thread.sleep(2000);
         enterText(nameOrganisation, "Self3", "Name of the organisation");
@@ -661,7 +658,7 @@ public class AutomationScripts extends ReusableMethods {
     }
 
 
-    @Test(description = "Test organisation another",enabled = false)
+    @Test(description = "Test organisation another")
     public void organisationAnother() throws  Exception {
         initialLogin(driver, configReader.getPath("user"), configReader.getPath("pwd"));
 
@@ -699,8 +696,7 @@ public class AutomationScripts extends ReusableMethods {
 
     }
 
-
-    @Test(description = "Test check for billing",enabled = false)
+    @Test(description = "Test check for billing")
     public void checkForBilling() throws Exception {
 
         initialLogin(driver, "gopala.anumanchipalli@gmail.com", "password12");

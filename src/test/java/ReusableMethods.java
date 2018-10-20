@@ -118,7 +118,6 @@ public class ReusableMethods {
             obj.click();
         } else {
             logTestStatus(Status.FAIL, objName);
-
         }
     }
 
