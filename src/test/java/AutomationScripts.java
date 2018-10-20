@@ -151,7 +151,6 @@ public class AutomationScripts extends ReusableMethods {
         WebElement privacyPolicy = driver.findElement(By.xpath("//a[contains(text(),'privacy notice')]"));
         clickObj(privacyPolicy, "Privacy Policy");
         ReusableMethods.logTestStatus(Status.PASS, methodName);
-
     }
 
     @Test(description = "Test full offer details")
