@@ -1,5 +1,8 @@
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -14,9 +17,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
-//import java.time.LocalDateTime;
-//import java.time.format.DateTimeFormatter;
 
 public class ReusableMethods {
     static ExtentHtmlReporter htmlReporter;
@@ -98,11 +98,8 @@ public class ReusableMethods {
     public static void enterText(WebElement obj, String textVal, String objName) {
         if (obj.isDisplayed()) {
             obj.sendKeys(textVal);
-            //logger.log(Status.INFO, MarkupHelper.createLabel(textVal + " is entered in " + objName + " field", ExtentColor.GREEN));
-//			System.out.println("Pass: " + textVal + " is entered in "+ objName +" field");
         } else {
-            //logger.log(Status.FAIL, MarkupHelper.createLabel(objName + " field does not exist, please check your application", ExtentColor.RED));
-            //		System.out.println("Fail: "+ objName +" field does not exist, please check your application" );
+            logTestStatus(Status.FAIL, objName);
         }
 
     }
@@ -119,9 +116,8 @@ public class ReusableMethods {
     public static void clickObj(WebElement obj, String objName) {
         if (obj.isDisplayed()) {
             obj.click();
-            //logger.log(Status.INFO, MarkupHelper.createLabel(objName + " is clicked", ExtentColor.GREEN));
         } else {
-            //logger.log(Status.FAIL, MarkupHelper.createLabel(objName + "", ExtentColor.RED));
+            logTestStatus(Status.FAIL, objName);
 
         }
     }
@@ -163,6 +159,16 @@ public class ReusableMethods {
         File finalDest = new File(destination);
         FileUtils.copyFile(source,finalDest );
         return destination;
+    }
+
+    public static void logTestStatus(Status status, String methodName) {
+        if(status == Status.PASS) {
+            logger.log(Status.PASS, MarkupHelper.createLabel(methodName, ExtentColor.GREEN));
+        } else if(status == Status.FAIL) {
+            logger.log(Status.FAIL, MarkupHelper.createLabel(methodName, ExtentColor.RED));
+        } else {
+            logger.log(Status.INFO, MarkupHelper.createLabel(methodName, ExtentColor.LIME));
+        }
     }
 
 }
