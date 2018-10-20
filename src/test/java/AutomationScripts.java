@@ -32,9 +32,7 @@ public class AutomationScripts extends ReusableMethods {
         configReader = new ConfigReader();
         driver = initialSetUp("firefox");
     }
-
-
-
+    
     @AfterMethod
     public void testCleanup(Method method) throws Exception {
         driver.quit();
